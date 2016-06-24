@@ -180,14 +180,14 @@ public class ChartUtils
         
         if (align == .center)
         {
-            point.x -= text.size(withAttributes: attributes).width / 2.0
+            point.x -= text.size(attributes: attributes).width / 2.0
         }
         else if (align == .right)
         {
-            point.x -= text.size(withAttributes: attributes).width
+            point.x -= text.size(attributes: attributes).width
         }
         
-        NSUIGraphicsPushContext(context)
+        NSUIGraphicsPushContext(context: context)
         
         (text as NSString).draw(at: point, withAttributes: attributes)
         
@@ -198,11 +198,11 @@ public class ChartUtils
     {
         var drawOffset = CGPoint()
         
-        NSUIGraphicsPushContext(context)
+        NSUIGraphicsPushContext(context: context)
         
         if angleRadians != 0.0
         {
-            let size = text.size(withAttributes: attributes)
+            let size = text.size(attributes: attributes)
             
             // Move the text drawing rect in a way that it always rotates around its center
             drawOffset.x = -size.width * 0.5
@@ -231,7 +231,7 @@ public class ChartUtils
         {
             if anchor.x != 0.0 || anchor.y != 0.0
             {
-                let size = text.size(withAttributes: attributes)
+                let size = text.size(attributes: attributes)
                 
                 drawOffset.x = -size.width * anchor.x
                 drawOffset.y = -size.height * anchor.y
@@ -250,7 +250,7 @@ public class ChartUtils
     {
         var rect = CGRect(origin: CGPoint(), size: knownTextSize)
         
-        NSUIGraphicsPushContext(context)
+        NSUIGraphicsPushContext(context: context)
         
         if angleRadians != 0.0
         {

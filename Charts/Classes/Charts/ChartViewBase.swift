@@ -157,7 +157,7 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
         super.init(frame: frame)
 
 		#if os(iOS)
-			self.backgroundColor = NSUIColor.clearColor()
+			self.backgroundColor = NSUIColor.clear()
 		#endif
         initialize()
     }
@@ -804,7 +804,7 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
     /// - returns: the bitmap that represents the chart.
     public func getChartImage(transparent: Bool) -> NSUIImage?
     {
-        NSUIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque || !transparent, NSUIMainScreen()?.nsuiScale ?? 1.0)
+        NSUIGraphicsBeginImageContextWithOptions(size: bounds.size, isOpaque || !transparent, NSUIMainScreen()?.nsuiScale ?? 1.0)
 		defer { NSUIGraphicsEndImageContext() }
         
 		if let context = NSUIGraphicsGetCurrentContext() {
@@ -854,11 +854,11 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
 			switch (format)
 			{
 			case .png:
-				imageData = NSUIImagePNGRepresentation(image)
+				imageData = NSUIImagePNGRepresentation(image: image)! as Data!
 				break
 				
 			case .jpeg:
-				imageData = NSUIImageJPEGRepresentation(image, CGFloat(compressionQuality))
+				imageData = NSUIImageJPEGRepresentation(image: image, CGFloat(compressionQuality))! as Data!
 				break
 			}
 
@@ -969,35 +969,35 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
     
     // MARK: - Touches
     
-    public override func nsuiTouchesBegan(_ touches: Set<NSUITouch>, withEvent event: NSUIEvent?)
+    public override func nsuiTouchesBegan(touches: Set<NSUITouch>, withEvent event: NSUIEvent?)
     {
         if (!_interceptTouchEvents)
         {
-            super.nsuiTouchesBegan(touches, withEvent: event)
+            super.nsuiTouchesBegan(touches: touches, withEvent: event)
         }
     }
     
-    public override func nsuiTouchesMoved(_ touches: Set<NSUITouch>, withEvent event: NSUIEvent?)
+    public override func nsuiTouchesMoved(touches: Set<NSUITouch>, withEvent event: NSUIEvent?)
     {
         if (!_interceptTouchEvents)
         {
-            super.nsuiTouchesMoved(touches, withEvent: event)
+            super.nsuiTouchesMoved(touches: touches, withEvent: event)
         }
     }
     
-    public override func nsuiTouchesEnded(_ touches: Set<NSUITouch>, withEvent event: NSUIEvent?)
+    public override func nsuiTouchesEnded(touches: Set<NSUITouch>, withEvent event: NSUIEvent?)
     {
         if (!_interceptTouchEvents)
         {
-            super.nsuiTouchesEnded(touches, withEvent: event)
+            super.nsuiTouchesEnded(touches: touches, withEvent: event)
         }
     }
     
-    public override func nsuiTouchesCancelled(_ touches: Set<NSUITouch>?, withEvent event: NSUIEvent?)
+    public override func nsuiTouchesCancelled(touches: Set<NSUITouch>?, withEvent event: NSUIEvent?)
     {
         if (!_interceptTouchEvents)
         {
-            super.nsuiTouchesCancelled(touches, withEvent: event)
+            super.nsuiTouchesCancelled(touches: touches, withEvent: event)
         }
     }
 }
