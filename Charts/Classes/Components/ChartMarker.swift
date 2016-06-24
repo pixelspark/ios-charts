@@ -54,7 +54,7 @@ public class ChartMarker: NSObject
         
         let rect = CGRect(x: point.x + offset.x, y: point.y + offset.y, width: size.width, height: size.height)
         
-        NSUIGraphicsPushContext(context)
+        NSUIGraphicsPushContext(context: context)
         image!.draw(in: rect)
         NSUIGraphicsPopContext()
     }
