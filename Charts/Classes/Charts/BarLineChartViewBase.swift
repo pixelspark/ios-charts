@@ -40,7 +40,7 @@ public class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChar
     /// the color for the background of the chart-drawing area (everything behind the grid lines).
     public var gridBackgroundColor = NSUIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
     
-    public var borderColor = NSUIColor.black()
+    public var borderColor = NSUIColor.black
     public var borderLineWidth: CGFloat = 1.0
     
     /// flag indicating if the grid background should be drawn or not
@@ -148,7 +148,7 @@ public class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChar
         super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         
         // Restoring old position of chart
-        if var newPoint = oldPoint where keepPositionOnRotation
+        if var newPoint = oldPoint, keepPositionOnRotation
         {
             getTransformer(.left).pointValueToPixel(&newPoint)
             viewPortHandler.centerViewPort(pt: newPoint, chart: self)
@@ -824,7 +824,7 @@ public class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChar
                     _decelerationVelocity = recognizer.velocity(in: self)
                     
                     _decelerationDisplayLink = NSUIDisplayLink(target: self, selector: #selector(BarLineChartViewBase.decelerationLoop))
-                    _decelerationDisplayLink.add(to: RunLoop.main, forMode: RunLoopMode(rawValue: RunLoopMode.commonModes.rawValue))
+                    _decelerationDisplayLink.add(to: RunLoop.main, forMode: RunLoopMode.commonModes.rawValue)
                 }
                 
                 _isDragging = false
@@ -875,7 +875,7 @@ public class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChar
     {
         if (_decelerationDisplayLink !== nil)
         {
-            _decelerationDisplayLink.remove(from: RunLoop.main, forMode: RunLoopMode(rawValue: RunLoopMode.commonModes.rawValue))
+            _decelerationDisplayLink.remove(from: RunLoop.main, forMode: RunLoopMode.commonModes.rawValue)
             _decelerationDisplayLink = nil
         }
     }
