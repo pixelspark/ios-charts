@@ -92,14 +92,14 @@ public class LineChartRenderer: LineRadarChartRenderer
     {
         guard let
             trans = dataProvider?.getTransformer(dataSet.axisDependency),
-            animator = animator
+            let animator = animator
             else { return }
         
         let entryCount = dataSet.entryCount
         
         guard let
             entryFrom = dataSet.entryForXIndex(self.minX < 0 ? 0 : self.minX, rounding: .down),
-            entryTo = dataSet.entryForXIndex(self.maxX, rounding: .up)
+            let entryTo = dataSet.entryForXIndex(self.maxX, rounding: .up)
             else { return }
         
         let diff = (entryFrom == entryTo) ? 1 : 0
@@ -184,14 +184,14 @@ public class LineChartRenderer: LineRadarChartRenderer
     {
         guard let
             trans = dataProvider?.getTransformer(dataSet.axisDependency),
-            animator = animator
+            let animator = animator
             else { return }
         
         let entryCount = dataSet.entryCount
         
         guard let
             entryFrom = dataSet.entryForXIndex(self.minX < 0 ? 0 : self.minX, rounding: .down),
-            entryTo = dataSet.entryForXIndex(self.maxX, rounding: .up)
+            let entryTo = dataSet.entryForXIndex(self.maxX, rounding: .up)
             else { return }
         
         let diff = (entryFrom == entryTo) ? 1 : 0
@@ -295,7 +295,7 @@ public class LineChartRenderer: LineRadarChartRenderer
     {
         guard let
             trans = dataProvider?.getTransformer(dataSet.axisDependency),
-            animator = animator
+            let animator = animator
             else { return }
         
         let valueToPixelMatrix = trans.valueToPixelMatrix
@@ -309,7 +309,7 @@ public class LineChartRenderer: LineRadarChartRenderer
 
         guard let
             entryFrom = dataSet.entryForXIndex(self.minX < 0 ? 0 : self.minX, rounding: .down),
-            entryTo = dataSet.entryForXIndex(self.maxX, rounding: .up)
+            let entryTo = dataSet.entryForXIndex(self.maxX, rounding: .up)
             else { return }
         
         var diff = (entryFrom == entryTo) ? 1 : 0
@@ -533,8 +533,8 @@ public class LineChartRenderer: LineRadarChartRenderer
     {
         guard let
             dataProvider = dataProvider,
-            lineData = dataProvider.lineData,
-            animator = animator
+            let lineData = dataProvider.lineData,
+            let animator = animator
             else { return }
         
         if (CGFloat(lineData.yValCount) < CGFloat(dataProvider.maxVisibleValueCount) * viewPortHandler.scaleX)
@@ -574,7 +574,7 @@ public class LineChartRenderer: LineRadarChartRenderer
                 
                 guard let
                     entryFrom = dataSet.entryForXIndex(self.minX < 0 ? 0 : self.minX, rounding: .down),
-                    entryTo = dataSet.entryForXIndex(self.maxX, rounding: .up)
+                    let entryTo = dataSet.entryForXIndex(self.maxX, rounding: .up)
                     else { continue }
                 
                 var diff = (entryFrom == entryTo) ? 1 : 0
@@ -625,8 +625,8 @@ public class LineChartRenderer: LineRadarChartRenderer
     {
         guard let
             dataProvider = dataProvider,
-            lineData = dataProvider.lineData,
-            animator = animator
+            let lineData = dataProvider.lineData,
+            let animator = animator
             else { return }
         
         let phaseX = max(0.0, min(1.0, animator.phaseX))
@@ -667,7 +667,7 @@ public class LineChartRenderer: LineRadarChartRenderer
             
             guard let
                 entryFrom = dataSet.entryForXIndex(self.minX < 0 ? 0 : self.minX, rounding: .down),
-                entryTo = dataSet.entryForXIndex(self.maxX, rounding: .up)
+                let entryTo = dataSet.entryForXIndex(self.maxX, rounding: .up)
                 else { continue }
             
             var diff = (entryFrom == entryTo) ? 1 : 0
@@ -746,8 +746,8 @@ public class LineChartRenderer: LineRadarChartRenderer
     {
         guard let
             lineData = dataProvider?.lineData,
-            chartXMax = dataProvider?.chartXMax,
-            animator = animator
+            let chartXMax = dataProvider?.chartXMax,
+            let animator = animator
             else { return }
         
         context.saveGState()

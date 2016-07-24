@@ -56,7 +56,7 @@ public class ScatterChartRenderer: LineScatterCandleRadarChartRenderer
     {
         guard let
             dataProvider = dataProvider,
-            animator = animator
+            let animator = animator
             else { return }
         
         let trans = dataProvider.getTransformer(dataSet.axisDependency)
@@ -265,8 +265,8 @@ public class ScatterChartRenderer: LineScatterCandleRadarChartRenderer
     {
         guard let
             dataProvider = dataProvider,
-            scatterData = dataProvider.scatterData,
-            animator = animator
+            let scatterData = dataProvider.scatterData,
+            let animator = animator
             else { return }
         
         // if values are drawn
@@ -347,8 +347,8 @@ public class ScatterChartRenderer: LineScatterCandleRadarChartRenderer
     {
         guard let
             dataProvider = dataProvider,
-            scatterData = dataProvider.scatterData,
-            animator = animator
+            let scatterData = dataProvider.scatterData,
+            let animator = animator
             else { return }
         
         let chartXMax = dataProvider.chartXMax

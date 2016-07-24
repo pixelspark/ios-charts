@@ -981,7 +981,7 @@ public class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChar
             
             // If there is two scrollview together, we pick the superview of the inner scrollview.
             // In the case of UITableViewWrepperView, the superview will be UITableView
-			if let superViewOfScrollView = scrollView?.superview where superViewOfScrollView is NSUIScrollView
+			if let superViewOfScrollView = scrollView?.superview, superViewOfScrollView is NSUIScrollView
             {
                 scrollView = superViewOfScrollView
             }

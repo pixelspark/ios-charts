@@ -157,7 +157,7 @@ public class ChartYAxisRendererRadarChart: ChartYAxisRenderer
     {
         guard let
             yAxis = yAxis,
-            chart = chart
+            let chart = chart
             else { return }
         
         if (!yAxis.enabled || !yAxis.drawLabelsEnabled)
@@ -196,7 +196,7 @@ public class ChartYAxisRendererRadarChart: ChartYAxisRenderer
     {
         guard let
             yAxis = yAxis,
-            chart = chart
+            let chart = chart
             else { return }
         
         var limitLines = yAxis.limitLines

@@ -35,7 +35,7 @@ public class ChartXAxisRendererBarChart: ChartXAxisRenderer
     {
         guard let
             xAxis = xAxis,
-            barData = chart?.data as? BarChartData
+            let barData = chart?.data as? BarChartData
             else { return }
         
         let paraStyle = NSParagraphStyle.default().mutableCopy() as! NSMutableParagraphStyle
@@ -114,7 +114,7 @@ public class ChartXAxisRendererBarChart: ChartXAxisRenderer
     {
         guard let
             xAxis = xAxis,
-            barData = chart?.data as? BarChartData
+            let barData = chart?.data as? BarChartData
             else { return }
         
         if (!xAxis.drawGridLinesEnabled || !xAxis.enabled)
