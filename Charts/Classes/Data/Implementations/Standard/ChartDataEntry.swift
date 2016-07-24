@@ -61,7 +61,7 @@ public class ChartDataEntry: NSObject
             return false
         }
 
-		if let d = object as? ChartDataEntry where d.data !== self.data || !d.isEqual(self.data)
+		if let d = object as? ChartDataEntry, d.data !== self.data || !d.isEqual(self.data)
 		{
 			return false
 		}

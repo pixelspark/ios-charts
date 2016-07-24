@@ -375,7 +375,7 @@ public class ChartYAxisRenderer: ChartAxisRendererBase
     {
         guard let
             yAxis = yAxis,
-            zeroLineColor = yAxis.zeroLineColor
+            let zeroLineColor = yAxis.zeroLineColor
             else { return }
         
         context.saveGState()

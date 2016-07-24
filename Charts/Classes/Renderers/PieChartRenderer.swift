@@ -93,8 +93,8 @@ public class PieChartRenderer: ChartDataRendererBase
     {
         guard let
             chart = chart,
-            data = chart.data,
-            animator = animator
+            let data = chart.data,
+            let animator = animator
             else {return }
         
         var angle: CGFloat = 0.0
@@ -256,8 +256,8 @@ public class PieChartRenderer: ChartDataRendererBase
     {
         guard let
             chart = chart,
-            data = chart.data,
-            animator = animator
+            let data = chart.data,
+            let animator = animator
             else { return }
         
         let center = chart.centerCircleBox
@@ -518,7 +518,7 @@ public class PieChartRenderer: ChartDataRendererBase
     {
         guard let
             chart = chart,
-            animator = animator
+            let animator = animator
             else { return }
         
         if (chart.drawHoleEnabled)
@@ -577,7 +577,7 @@ public class PieChartRenderer: ChartDataRendererBase
     {
         guard let
             chart = chart,
-            centerAttributedText = chart.centerAttributedText
+            let centerAttributedText = chart.centerAttributedText
             else { return }
         
         if chart.drawCenterTextEnabled && centerAttributedText.length > 0
@@ -616,8 +616,8 @@ public class PieChartRenderer: ChartDataRendererBase
     {
         guard let
             chart = chart,
-            data = chart.data,
-            animator = animator
+            let data = chart.data,
+            let animator = animator
             else { return }
         
         context.saveGState()

@@ -31,7 +31,7 @@ public class BarChartRenderer: ChartDataRendererBase
     
     public override func drawData(context: CGContext)
     {
-        guard let dataProvider = dataProvider, barData = dataProvider.barData else { return }
+        guard let dataProvider = dataProvider, let barData = dataProvider.barData else { return }
         
         for i in 0 ..< barData.dataSetCount
         {
@@ -50,15 +50,14 @@ public class BarChartRenderer: ChartDataRendererBase
     }
     
     public func drawDataSet(context: CGContext, dataSet: IBarChartDataSet, index: Int)
-    {
-        guard let
-            dataProvider = dataProvider,
-            barData = dataProvider.barData,
-            animator = animator
-            else { return }
-        
-        context.saveGState()
-        
+	{
+		guard let dataProvider = dataProvider,
+			let barData = dataProvider.barData,
+			let animator = animator
+			else { return }
+
+		context.saveGState()
+
         let trans = dataProvider.getTransformer(dataSet.axisDependency)
         
         let drawBarShadowEnabled: Bool = dataProvider.drawBarShadowEnabled
@@ -286,8 +285,8 @@ public class BarChartRenderer: ChartDataRendererBase
         {
             guard let
                 dataProvider = dataProvider,
-                barData = dataProvider.barData,
-                animator = animator
+                let barData = dataProvider.barData,
+                let animator = animator
                 else { return }
             
             var dataSets = barData.dataSets
@@ -479,8 +478,8 @@ public class BarChartRenderer: ChartDataRendererBase
     {
         guard let
             dataProvider = dataProvider,
-            barData = dataProvider.barData,
-            animator = animator
+            let barData = dataProvider.barData,
+            let animator = animator
             else { return }
         
         context.saveGState()
@@ -593,7 +592,7 @@ public class BarChartRenderer: ChartDataRendererBase
     
     internal func passesCheck() -> Bool
     {
-        guard let dataProvider = dataProvider, barData = dataProvider.barData else { return false }
+        guard let dataProvider = dataProvider, let barData = dataProvider.barData else { return false }
         
         return CGFloat(barData.yValCount) < CGFloat(dataProvider.maxVisibleValueCount) * viewPortHandler.scaleX
     }

@@ -270,7 +270,7 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
         // check if a custom formatter is set or not
         var reference = Double(0.0)
         
-        if let data = _data where data.xValCount >= 2
+        if let data = _data, data.xValCount >= 2
         {
             reference = fabs(max - min)
         }
@@ -768,7 +768,7 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
     /// - returns: the x-value at the given index
     public func getXValue(_ index: Int) -> String!
     {
-        guard let data = _data where data.xValCount > index else
+        guard let data = _data, data.xValCount > index else
         {
             return nil
         }

@@ -148,7 +148,7 @@ public class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChar
         super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         
         // Restoring old position of chart
-        if var newPoint = oldPoint where keepPositionOnRotation
+        if var newPoint = oldPoint, keepPositionOnRotation
         {
             getTransformer(.left).pointValueToPixel(&newPoint)
             viewPortHandler.centerViewPort(pt: newPoint, chart: self)
@@ -981,7 +981,7 @@ public class BarLineChartViewBase: ChartViewBase, BarLineScatterCandleBubbleChar
             
             // If there is two scrollview together, we pick the superview of the inner scrollview.
             // In the case of UITableViewWrepperView, the superview will be UITableView
-			if let superViewOfScrollView = scrollView?.superview where superViewOfScrollView is NSUIScrollView
+			if let superViewOfScrollView = scrollView?.superview, superViewOfScrollView is NSUIScrollView
             {
                 scrollView = superViewOfScrollView
             }

@@ -32,7 +32,7 @@ public class CandleStickChartRenderer: LineScatterCandleRadarChartRenderer
     
     public override func drawData(context: CGContext)
     {
-        guard let dataProvider = dataProvider, candleData = dataProvider.candleData else { return }
+        guard let dataProvider = dataProvider, let candleData = dataProvider.candleData else { return }
 
         for set in candleData.dataSets as! [ICandleChartDataSet]
         {
@@ -54,7 +54,7 @@ public class CandleStickChartRenderer: LineScatterCandleRadarChartRenderer
     {
         guard let
             trans = dataProvider?.getTransformer(dataSet.axisDependency),
-            animator = animator
+            let animator = animator
             else { return }
         
         let phaseX = max(0.0, min(1.0, animator.phaseX))
@@ -248,8 +248,8 @@ public class CandleStickChartRenderer: LineScatterCandleRadarChartRenderer
     {
         guard let
             dataProvider = dataProvider,
-            candleData = dataProvider.candleData,
-            animator = animator
+            let candleData = dataProvider.candleData,
+            let animator = animator
             else { return }
         
         // if values are drawn
@@ -327,8 +327,8 @@ public class CandleStickChartRenderer: LineScatterCandleRadarChartRenderer
     {
         guard let
             dataProvider = dataProvider,
-            candleData = dataProvider.candleData,
-            animator = animator
+            let candleData = dataProvider.candleData,
+            let animator = animator
             else { return }
         
         context.saveGState()

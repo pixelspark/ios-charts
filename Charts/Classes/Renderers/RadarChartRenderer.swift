@@ -67,7 +67,7 @@ public class RadarChartRenderer: LineRadarChartRenderer
     {
         guard let
             chart = chart,
-            animator = animator
+            let animator = animator
             else { return }
         
         context.saveGState()
@@ -151,8 +151,8 @@ public class RadarChartRenderer: LineRadarChartRenderer
     {
         guard let
             chart = chart,
-            data = chart.data,
-            animator = animator
+            let data = chart.data,
+            let animator = animator
             else { return }
         
         let phaseX = animator.phaseX
@@ -214,7 +214,7 @@ public class RadarChartRenderer: LineRadarChartRenderer
     {
         guard let
             chart = chart,
-            data = chart.data
+            let data = chart.data
             else { return }
         
         let sliceangle = chart.sliceAngle
@@ -284,8 +284,8 @@ public class RadarChartRenderer: LineRadarChartRenderer
     {
         guard let
             chart = chart,
-            data = chart.data as? RadarChartData,
-            animator = animator
+            let data = chart.data as? RadarChartData,
+            let animator = animator
             else { return }
         
         context.saveGState()

@@ -86,7 +86,7 @@ public class ChartXAxisRendererHorizontalBarChart: ChartXAxisRendererBarChart
     {
         guard let
             xAxis = xAxis,
-            bd = chart?.data as? BarChartData
+            let bd = chart?.data as? BarChartData
             else { return }
         
         let labelFont = xAxis.labelFont
@@ -139,7 +139,7 @@ public class ChartXAxisRendererHorizontalBarChart: ChartXAxisRendererBarChart
     {
         guard let
             xAxis = xAxis,
-            bd = chart?.data as? BarChartData
+            let bd = chart?.data as? BarChartData
             else { return }
         
         if !xAxis.enabled || !xAxis.drawGridLinesEnabled

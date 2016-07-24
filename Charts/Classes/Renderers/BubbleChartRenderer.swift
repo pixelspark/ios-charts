@@ -30,7 +30,7 @@ public class BubbleChartRenderer: ChartDataRendererBase
     
     public override func drawData(context: CGContext)
     {
-        guard let dataProvider = dataProvider, bubbleData = dataProvider.bubbleData else { return }
+        guard let dataProvider = dataProvider, let bubbleData = dataProvider.bubbleData else { return }
         
         for set in bubbleData.dataSets as! [IBubbleChartDataSet]
         {
@@ -61,7 +61,7 @@ public class BubbleChartRenderer: ChartDataRendererBase
     {
         guard let
             dataProvider = dataProvider,
-            animator = animator
+            let animator = animator
             else { return }
         
         let trans = dataProvider.getTransformer(dataSet.axisDependency)
@@ -75,7 +75,7 @@ public class BubbleChartRenderer: ChartDataRendererBase
         
         guard let
             entryFrom = dataSet.entryForXIndex(self.minX),
-            entryTo = dataSet.entryForXIndex(self.maxX)
+            let entryTo = dataSet.entryForXIndex(self.maxX)
             else { return }
         
         let minx = max(dataSet.entryIndex(entry: entryFrom), 0)
@@ -144,8 +144,8 @@ public class BubbleChartRenderer: ChartDataRendererBase
     {
         guard let
             dataProvider = dataProvider,
-            bubbleData = dataProvider.bubbleData,
-            animator = animator
+            let bubbleData = dataProvider.bubbleData,
+            let animator = animator
             else { return }
         
         // if values are drawn
@@ -176,7 +176,7 @@ public class BubbleChartRenderer: ChartDataRendererBase
                 
                 guard let
                     entryFrom = dataSet.entryForXIndex(self.minX),
-                    entryTo = dataSet.entryForXIndex(self.maxX)
+                    let entryTo = dataSet.entryForXIndex(self.maxX)
                     else { continue }
                 
                 let minx = max(dataSet.entryIndex(entry: entryFrom), 0)
@@ -230,8 +230,8 @@ public class BubbleChartRenderer: ChartDataRendererBase
     {
         guard let
             dataProvider = dataProvider,
-            bubbleData = dataProvider.bubbleData,
-            animator = animator
+            let bubbleData = dataProvider.bubbleData,
+            let animator = animator
             else { return }
         
         context.saveGState()
@@ -247,8 +247,8 @@ public class BubbleChartRenderer: ChartDataRendererBase
             
             for dataSetIndex in minDataSetIndex..<maxDataSetIndex
             {
-                guard let dataSet = bubbleData.getDataSetByIndex(dataSetIndex) as? IBubbleChartDataSet
-                    where dataSet.highlightEnabled
+                guard let dataSet = bubbleData.getDataSetByIndex(dataSetIndex) as? IBubbleChartDataSet,
+                    dataSet.highlightEnabled
                     else { continue }
                 
                 let entries = dataSet.entriesForXIndex(high.xIndex)
