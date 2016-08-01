@@ -550,8 +550,8 @@ types are aliased to either their UI* implementation (on iOS) or their NS* imple
 
 			let colorSpace = CGColorSpaceCreateDeviceRGB()
 			let ctx = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 4*width, space: colorSpace, bitmapInfo: (opaque ?  CGImageAlphaInfo.noneSkipFirst.rawValue : CGImageAlphaInfo.premultipliedFirst.rawValue))
-			ctx?.concatCTM(CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: CGFloat(height)))
-			ctx?.scale(x: scale, y: scale)
+			ctx?.concatenate(CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: CGFloat(height)))
+			ctx?.scaleBy(x: scale, y: scale)
 			NSUIGraphicsPushContext(ctx!)
 		}
 	}

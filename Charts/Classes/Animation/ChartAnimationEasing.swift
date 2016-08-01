@@ -331,7 +331,8 @@ internal struct EasingFunctions
             return CGFloat( -0.5 * (pow(2.0, 10.0 * position) * sin((position * duration - s) * (2.0 * M_PI) / p)) )
         }
         position -= 1.0
-        return CGFloat( pow(2.0, -10.0 * position) * sin((position * duration - s) * (2.0 * M_PI) / p) * 0.5 + 1.0 )
+		let sp = sin((position * duration - s) * (2.0 * M_PI) / p)
+        return CGFloat( pow(2.0, -10.0 * position) * sp * 0.5 + 1.0 )
     }
     
     internal static let EaseInBack = { (elapsed: TimeInterval, duration: TimeInterval) -> CGFloat in

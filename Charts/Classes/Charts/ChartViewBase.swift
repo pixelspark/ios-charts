@@ -70,8 +70,8 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
     public var descriptionFont: NSUIFont? = NSUIFont(name: "HelveticaNeue", size: 9.0)
     
     /// Text color used for drawing the description text
-    public var descriptionTextColor: NSUIColor? = NSUIColor.black()
-    
+    public var descriptionTextColor: NSUIColor? = NSUIColor.black
+
     /// Text align used for drawing the description text
     public var descriptionTextAlign: NSTextAlignment = NSTextAlignment.right
     
@@ -813,7 +813,7 @@ public class ChartViewBase: NSUIView, ChartDataProvider, ChartAnimatorDelegate
 			if (isOpaque || !transparent)
 			{
 				// Background color may be partially transparent, we must fill with white if we want to output an opaque image
-				context.setFillColor(NSUIColor.white().cgColor)
+				context.setFillColor(NSUIColor.white.cgColor)
 				context.fill(rect)
 				
 				if (self.backgroundColor !== nil)

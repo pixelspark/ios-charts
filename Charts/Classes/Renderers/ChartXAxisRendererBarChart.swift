@@ -76,7 +76,7 @@ public class ChartXAxisRendererBarChart: ChartXAxisRenderer
                 position.x += (CGFloat(step) - 1.0) / 2.0
             }
             
-            position = position.apply(transform: valueToPixelMatrix)
+            position = position.applying( valueToPixelMatrix)
             
             if (viewPortHandler.isInBoundsX(position.x))
             {
@@ -148,7 +148,7 @@ public class ChartXAxisRendererBarChart: ChartXAxisRenderer
         {
             position.x = CGFloat(i * step) + CGFloat(i) * barData.groupSpace - 0.5
             position.y = 0.0
-            position = position.apply(transform: valueToPixelMatrix)
+            position = position.applying( valueToPixelMatrix)
             
             if (viewPortHandler.isInBoundsX(position.x))
             {
